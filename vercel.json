@@ -13,6 +13,10 @@
     {
       "src": "utils/**",
       "use": "@vercel/static"
+    },
+    {
+      "src": "/**",
+      "use": "@vercel/static"
     }
   ],
 
