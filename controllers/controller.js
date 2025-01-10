@@ -1,6 +1,6 @@
 const { Sequelize, QueryType, QueryTypes } = require("sequelize");
 const { formatDataToWIB } = require("../utils/time");
-const config = require("../config/config.json");
+const config = require("../config/config");
 const { SELECT } = require("sequelize/lib/query-types");
 const { types } = require("pg");
 
