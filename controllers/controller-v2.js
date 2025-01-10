@@ -6,7 +6,7 @@ const { types } = require("pg");
 const { Myproject, User } = require("../models");
 const session = require("express-session");
 const fs = require("fs");
-const $ = require("jquery");
+// const $ = require("jquery");
 const path = require("path");
 
 const Swal = require("sweetalert2");
