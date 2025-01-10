@@ -4,7 +4,6 @@ var flash = require("express-flash");
 var methodOverride = require("method-override");
 const path = require("path");
 const hbs = require("hbs");
-const config = require("./config/config");
 require("dotenv").config();
 
 const {
