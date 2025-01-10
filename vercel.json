@@ -5,6 +5,10 @@
       "src": "index.js",
       "use": "@vercel/node",
       "config": { "includeFiles": ["dist/**"] }
+    },
+    {
+      "src": "Asset/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
