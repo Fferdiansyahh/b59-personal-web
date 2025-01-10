@@ -11,14 +11,14 @@
       "use": "@vercel/static"
     },
     {
-      "cleanUrls": true
+      "rewrites": [{ "source": "/(.*)", "destination": "/" }]
     }
   ],
+
   "routes": [
     {
       "src": "/(.*)",
       "dest": "index.js"
     }
-  ],
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+  ]
 }
