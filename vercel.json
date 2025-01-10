@@ -7,7 +7,7 @@
       "config": { "includeFiles": ["dist/**"] }
     },
     {
-      "src": "Asset/*",
+      "src": "Asset/(.*)",
       "use": "@vercel/static"
     }
   ],
