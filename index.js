@@ -4,6 +4,7 @@ var flash = require("express-flash");
 var methodOverride = require("method-override");
 const path = require("path");
 const hbs = require("hbs");
+const config = require("./config/config");
 require("dotenv").config();
 
 const {
@@ -104,7 +105,8 @@ hbs.registerHelper("classIconsa", classIconsa);
 hbs.registerHelper("classIconsb", classIconsb);
 hbs.registerHelper("classIconsc", classIconsc);
 hbs.registerHelper("classIconsd", classIconsd);
-hbs.registerHelper("confirmDelProj", confirmDelProj);sendAlert
+hbs.registerHelper("confirmDelProj", confirmDelProj);
+sendAlert;
 hbs.registerHelper("sendAlert", sendAlert);
 hbs.registerHelper("getDuring", getDuring);
 hbs.registerHelper("equal", function (a, b) {
@@ -125,7 +127,6 @@ app.get("/myproject", renderMyproject);
 app.get("/project-add", renderCreatemyproject);
 app.get("/project-edit/:id", renderProjectEdit);
 app.patch("/project-update:id", upload.single("image"), updateProject);
-
 
 // app.post("/delete-proj:id");
 app.delete("/delete-project:id", delProject);

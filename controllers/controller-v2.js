@@ -1,5 +1,5 @@
 const { Sequelize, QueryType, QueryTypes, where } = require("sequelize");
-const config = require("../config/config.json");
+const config = require("../config/config");
 const { SELECT } = require("sequelize/lib/query-types");
 const bcrypt = require("bcrypt");
 const { types } = require("pg");
@@ -13,7 +13,10 @@ const Swal = require("sweetalert2");
 
 const saltRound = 10;
 
-const sequelize = new Sequelize(config.development);
+require("dotenv").config();
+
+const environment = process.env.NODE_ENV;
+const sequelize = new Sequelize(config[environment]);
 
 function renderLogin(req, res) {
   const { user } = req.session;
