@@ -9,6 +9,10 @@
     {
       "src": "Asset/**",
       "use": "@vercel/static"
+    },
+    {
+      "src": "utils/**",
+      "use": "@vercel/static"
     }
   ],
 
