@@ -80,8 +80,6 @@ app.use("/Asset", express.static(path.join(__dirname, "./Asset")));
 app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
 app.use("/utils", express.static(path.join(__dirname, "./utils")));
 
-server.use(express.static("public")); // this is what you need.
-
 hbs.registerPartials(__dirname + "/views/partials", function (err) {});
 hbs.registerHelper("getRelativeTime", getRelativeTime);
 hbs.registerHelper("formatDataToWIB", formatDataToWIB);

@@ -13,8 +13,6 @@ const Swal = require("sweetalert2");
 
 const saltRound = 10;
 
-require("dotenv").config();
-
 const environment = process.env.NODE_ENV;
 const sequelize = new Sequelize(config[environment]);
 
