@@ -9,6 +9,9 @@
     {
       "src": "Asset/**",
       "use": "@vercel/static"
+    },
+    {
+      "cleanUrls": true
     }
   ],
   "routes": [
