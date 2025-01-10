@@ -1,7 +1,8 @@
 {{#> layout title='Edit Project' user=user}}
 
   <main class="contact-section">
-    <form action="/project-update{{data.id}}?_method=patch" method="post" class="contact-form" enctype="multipart/form-data">
+    <div class="form-edit">
+    <form action="/project-update{{data.id}}?_method=patch" method="post" class="contact-form-edit" enctype="multipart/form-data">
       <div class="form-title">
         <h2>EDIT PROJECT</h2>
       </div>
@@ -9,7 +10,7 @@
         <label for="name">Project Name</label>
         <input id="name" name="name" class="form-input" type="text" value="{{data.name}}" required />
       </div>
-
+      <div></div>
       <div class="form-date">
         <div class="form-field-date">
           <label for="sdate">Start Date</label>
@@ -51,19 +52,20 @@
       </div>
 
 
+
       <div class="form-field-image">       
-                    <label for="image" class="form-label">Upload Image</label>
-          <input id="images" name="image" class="form-control" type="file" accept=".png, .jpg, .jpeg">
-              </div>
+          <label for="image" class="form-label">Upload Image</label>
+          <input id="image" name="image" class="form-control form-input" type="file" accept=".png, .jpg, .jpeg" href="/Asset/image/blog-image.png">
+      </div>
 
-<div>
-<img id="preview" src="#" alt="image preview"
-class="img-thumbnail d-none" style="max-height: 300px;"></img>
+            
+      <div ><button id="button-edit"  type="submit" class="form-submit-button d-none" hidden>Submit</button></div>       
+      <div class="w-100 text-center">
+          <img id="preview" src={{data.image}} alt="image preview" class="img-thumbnail" style="max-width: 100%"></img>
+      </div>
+      </form>
+    <div class="form-button"><button onclick="return confirmEdit()" class="form-submit-button-edit mt-3 mr-0">Edit Project</button></div>
 </div>
-
-      <div class="form-button"><button type="submit" class="form-submit-button">Submit</button></div>
-    </form>
-
   
  <script src="/asset/js/image-preview.js"></script>
     

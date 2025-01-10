@@ -1,29 +1,64 @@
 {{#> layout title='Register' user=user}}
 
   <main class="contact-section">
-    <form action="/register" method="post" class="contact-form" enctype="multipart/form-data" >
+    {{!-- <div class="flex flex-column row-gap-3"> --}}
+    <form action="/register" method="post" class="contact-form" >
       <div class="form-title">
         <h2>REGISTER</h2>
       </div>
-      <div class="form-field mt-3">
+      <div class="form-field mt-4">
         <label for="username">Username</label>
         <input id="username" name="username" class="form-input" type="text" placeholder="Username" required />
       </div>
-       <div class="form-field mt-3">
+       <div class="form-field mt-4">
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" class="form-input" type="text"  placeholder="email@mail.com"  />
+        <input id="email" name="email" type="email" class="form-input" type="text"  placeholder="email@mail.com"  required />
       </div>
-       <div class="form-field mt-3">
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" class="form-input" type="text"  placeholder="Password ( character)"  />
+       <div class="form-field mt-4">
+        <label for="password-res">Password</label>
+        <input id="password-res" name="password" type="password" class="form-input" type="text"  placeholder="Password ( character)" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*?[!@#$%^&*+`~=?\|<>/()]).{8,}" required  />
       </div>    
+      <div class="mt-3"><input type="checkbox" onclick="showPass()"> Show Password </input></div>
+      {{#if messages.error}}
+        <div></div>
+        <div class="alert alert-danger" role="alert">
+        {{messages.error}}
+        </div>
+        {{/if}} 
+        {{#if messages.success}}
+        <div class="alert alert-success" role="alert">
+        {{messages.success}}
+        </div>
+      {{/if}}
 
-      <div class="form-button"><button type="submit" class="form-submit-button">Submit</button></div>
-    </form>
+     
+ <div id="password-message" style="width: 400px;" class=" mt-0 p-0">
+                  <div class="textPasVal">
+                <p class="ml-2"  >     Password must contain:</p>
+                <div class="px-5">
+                <p class="password-message-item  invalid">At least
+                    <b>one lowercase letter</b>
+                </p>
+                <p class="password-message-item invalid">At least
+                    <b>one uppercase letter</b>
+                </p>
+                <p class="password-message-item invalid">At least
+                    <b>one number</b>
+                </p>
+                 <p class="password-message-item invalid">At least
+                    <b>one special characters </b>
+                </p>
+                <p class="password-message-item invalid">Minimum
+                    <b>8 characters</b>
+                </p>
+                </div>
+                </div>
+            </div>
 
-  
-
+        <div class="form-button"><button id="button-register"  type="submit" class="form-submit-button ">Register</button></div>
+    </form>     
     
+
   </main>
 
 {{/layout}}

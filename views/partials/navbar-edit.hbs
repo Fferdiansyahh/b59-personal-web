@@ -1,0 +1,54 @@
+<div >
+  <nav class="navbar navbar-expand-lg bg-secondary-subtle ps-5 py-0 navbar-main">    
+    <div class="container-fluid px-0">
+      <a class="navbar-brand" href="/">
+        <img src="/Asset/image/DU-Black.png" alt="Bootstrap" width="30" />
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1" >
+        <li class="nav-item">
+          <a class="nav-link home-nav {{#if (equal currentPage 'Home')}} navbar-active{{/if}}" aria-current="page" href="/">
+            Home</a>
+        </li>
+
+        
+        <li class="nav-item">
+          <a class="nav-link home-nav{{#if (equal currentPage 'My Project')}} navbar-active{{/if}}" href="/myproject">My
+            Project</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link home-nav{{#if (equal currentPage 'Testimonials')}} navbar-active{{/if}}"
+            href="/testimonial"
+          >Testimonial
+          </a>
+        </li>
+      </ul> 
+     
+    </div>
+
+
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-right" style="display: flex; align-items:center; justify-content:end; gap: 20px; ">
+        
+        {{#if user}}
+        <a class="nav-link navbar-login" > Hello, {{user.username}}</a>
+        <a class="nav-link navbar-login"   href="/logout">Logout</a>
+        
+        {{else}}
+        <a class="nav-link navbar-login {{#if (equal currentPage 'Register')}} active-login{{/if}} " href="/register">Register</a>
+        <a class="nav-link navbar-login {{#if (equal currentPage 'Login')}} active-login{{/if}}  " href="/login">Login</a>
+         {{/if}}
+        <a class="btn rounded-pill btn-nav " href="/contact">Contact Me</a>
+
+
+        
+      </div>
+
+      
+
+    </div>
+
+  </nav>
+</div>

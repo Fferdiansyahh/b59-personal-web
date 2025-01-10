@@ -1,18 +1,27 @@
 {{#> layout title='Project Detail' user=user}}
-  <main>
+  <main class="kotak1 shadow">
     <section class="blog-container">
-      <div class="blog-detail-container">
-        <h1>{{data.name}}</h1>        
+      <div class="blog-detail-container">              
         <div class="blog-detail-content">
-          <img class="blog-detail-image" src={{data.image}} alt="Detail Blog Image">
-        <div class="detail-content">
+          <img class="blog-detail-image rounded" src={{data.image}} alt="Detail Blog Image">
+
+        <div class="detail-content">          
+          <div class="mb-2"><h2>{{data.name}}</h2> </div> 
+          <div>
           <p class="detail-blog-content"> Duration : {{getDuring data.sdate data.edate}}</p>
-          <p>{{formatDataToWIB data.createdAt}} | {{data.user.username}}</p> 
-           <p>Tech : {{textTechnologies data.technologies}} </p>
-        <p >{{data.message}}</p>
-        <p class="relative-time">{{getRelativeTime data.postedAt}}</p>
+          <p class="mb-0">{{formatDataToWIB data.createdAt}} | {{data.user.username}}</p> 
+          
+          <div id="menu" class="d-flex justify-content-left my-3">
+              <img class="{{classIconsa data.technologies}}" src="{{attributeIconsa data.technologies}}" alt=""></img> 
+              <img class="{{classIconsb data.technologies}}" src="{{attributeIconsb data.technologies}}" alt=""></img>
+              <img class="{{classIconsc data.technologies}}" src="{{attributeIconsc data.technologies}}" alt=""></img>
+              <img class="{{classIconsd data.technologies}}" src="{{attributeIconsd data.technologies}}" alt=""></img> 
+          </div>          
+            <p class="mt-5" >{{data.message}}</p>
+            <p class="relative-time">{{getRelativeTime data.postedAt}}</p>
+            </div>
+          </div>
         </div>
-           </div>
       </div>
     </section>
   </main>

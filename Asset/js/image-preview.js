@@ -1,5 +1,14 @@
 // const { Myproject, User } = require("../models");
 
+// document.getElementById("email").addEventListener("change", function (event) {
+//   Swal.fire({
+//     title: "Edited!",
+//     text: "Project has been edited .",
+//     icon: "Success",
+//     background: "#1d2333",
+//   });
+// });
+
 document.getElementById("image").addEventListener("change", function (event) {
   const preview = document.getElementById("preview");
   const file = event.target.files[0];
@@ -14,6 +23,14 @@ document.getElementById("image").addEventListener("change", function (event) {
     preview.src = "#";
     preview.classList.add("d-none");
   }
+});
+
+const dropEl = document.querySelector("#dropzone");
+const inputEl = document.querySelector("#input");
+const dropCtrl = new SimpleDropzone(dropEl, inputEl);
+
+dropzone.on("drop", ({ files }) => {
+  console.log(files);
 });
 
 // const projectEdit = await Myproject.findOne({ where: { id } });

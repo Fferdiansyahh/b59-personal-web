@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg bg-secondary-subtle">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="/Asset/image/icon.png" alt="Bootstrap" width="30" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link {{#if (equal currentPage 'Home')}}active text-orange fw-bold{{/if}}" aria-current="page" href="/">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{#if (equal currentPage 'My Project')}}active text-orange fw-bold{{/if}}" href="/myproject">My
+            Project</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {{#if (equal currentPage 'Testimonials')}}active text-orange fw-bold{{/if}}"
+            href="/testimonial"
+          >Testimonial
+          </a>
+        </li>
+      </ul> 
+      <div style="display: flex; align-items:center; width:50%; justify-content:end; gap: 20px; ">
+        {{#if user}}
+        Hello, {{user.username}}
+        <a class="nav-link " href="/logout">Logout</a>
+        {{else}}
+        <a class="nav-link " href="/register">Register</a>
+        <a class="nav-link " href="/login">Login</a>
+         {{/if}}
+        <a class="btn btn-orange " href="/contact">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</nav>

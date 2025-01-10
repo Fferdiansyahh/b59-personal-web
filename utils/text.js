@@ -1,3 +1,5 @@
+const Swal = require("../Asset/js/sweetalert2@11");
+
 function truncateText(text) {
   const maxLength = 150;
   if (text.length > maxLength) {
@@ -34,8 +36,36 @@ function textTechnologies(tech) {
   return text;
 }
 
+
+function delCheck() {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "Do you want delete!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes",
+    cancelButtonText: "No",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      return (
+        (style.backgroundColor = "#ffff00"),
+        Swal.fire({
+          title: "Deleted!",
+          text: "Project has been Change .",
+          icon: "success",
+        })
+      );
+    } else {
+      return false;
+    }
+  });
+}
+
 module.exports = {
   truncateText,
   alertDelete,
   textTechnologies,
+  delCheck,
 };

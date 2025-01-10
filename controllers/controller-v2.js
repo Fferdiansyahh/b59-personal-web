@@ -5,8 +5,11 @@ const bcrypt = require("bcrypt");
 const { types } = require("pg");
 const { Myproject, User } = require("../models");
 const session = require("express-session");
-const Swal = require("sweetalert2");
 const fs = require("fs");
+const $ = require("jquery");
+const path = require("path");
+
+const Swal = require("sweetalert2");
 
 const saltRound = 10;
 
@@ -36,15 +39,26 @@ function renderHome(req, res) {
 
 async function authRegister(req, res) {
   const { username, email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, saltRound);
-  const user = await User.create({
-    username,
-    email,
-    password: hashedPassword,
-  });
+  const userCheck = await User.findOne({ where: { username } });
+  const emailCheck = await User.findOne({ where: { email } });
 
-  req.flash("success", "Berhasil Mendaftar silahkan login");
-  res.redirect("/login");
+  if (userCheck) {
+    req.flash("error", "User Already Exists.");
+    res.redirect("/register");
+  } else if (emailCheck) {
+    req.flash("error", "Email Already Exists.");
+    res.redirect("/register");
+  } else {
+    const hashedPassword = await bcrypt.hash(password, saltRound);
+    const user = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
+    req.flash("success", "Berhasil Mendaftar silahkan login");
+    res.redirect("/login");
+  }
 }
 
 async function authLogin(req, res) {
@@ -60,6 +74,12 @@ async function authLogin(req, res) {
   const isValidated = await bcrypt.compare(password, user.password);
   if (!isValidated) {
     req.flash("error", "Password incorrect.");
+    Swal.fire({
+      title: "Edited!",
+      text: "Project has been edited .",
+      icon: "Success",
+      background: "#1d2333",
+    });
     return res.redirect("login");
   }
 
@@ -104,20 +124,18 @@ function renderCreatemyproject(req, res) {
 }
 
 async function updateProject(req, res) {
+  // const images = ;
+
+  // console.log("Image Read =", imageRead);
   let user = req.session.user;
   const { id } = req.params;
   const projectEdit = await Myproject.findOne({ where: { id } });
-
   const image = "http://localhost:3030/" + req.file.path;
-
-  if (image === null) {
-    image = "./uploads/" + projectEdit.image.split("\\").pop().split("/").pop();
-  }
 
   let imagepPath =
     "./uploads/" + projectEdit.image.split("\\").pop().split("/").pop();
   let imageOld = "./uploads/" + image.split("\\").pop().split("/").pop();
-  console.log("Image Local", req.file.path);
+  console.log("Image Patch", req.file.path);
   console.log("Image Local", imageOld);
   console.log("Image path", imagepPath);
   if (imagepPath !== imageOld) {
@@ -133,6 +151,7 @@ async function updateProject(req, res) {
   if (projectEdit.user_id === user.id) {
     const { name, sdate, edate, message, technologies } = req.body;
     // const image = req.file.path;
+    console.log("Gambar", image);
     const result = await Myproject.update(
       {
         name,
@@ -155,11 +174,13 @@ async function updateProject(req, res) {
     res.redirect("/myproject");
   }
 }
+
 async function renderProjectEdit(req, res) {
   const { user } = req.session;
   const { id } = req.params;
 
   const projectEdit = await Myproject.findOne({ where: { id } });
+  // console.log("user_id :", projectEdit.user_id);
 
   if (projectEdit.user_id === user.id) {
     res.render("project-edit", { data: projectEdit, user });
@@ -204,18 +225,17 @@ async function delProject(req, res) {
     });
 
     let imagepPath =
-      "./uploads/" + projectEdit.image.split("\\").pop().split("/").pop();    
-       
+      "./uploads/" + projectEdit.image.split("\\").pop().split("/").pop();
+
     console.log("Image path", imagepPath);
-   
-      try {
-        fs.unlinkSync(imagepPath);
-        console.log("File deleted!");
-      } catch (err) {
-        // Handle specific error if any
-        console.error(err.message);
-      }
-    
+
+    try {
+      fs.unlinkSync(imagepPath);
+      console.log("File deleted!");
+    } catch (err) {
+      // Handle specific error if any
+      console.error(err.message);
+    }
 
     // console.log("Result Query Delete :", result);
     res.redirect("myproject");
@@ -276,9 +296,7 @@ module.exports = {
   updateProject,
   renderTestimonial,
   renderContact,
-
   render404,
-
   addProject,
   delProject,
 };

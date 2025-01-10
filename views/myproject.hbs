@@ -8,29 +8,27 @@
 
   <main class="contact-section">
       
-    <section class="blog-container">
-      {{#if user}}
-       <a class="btn btn-add  position-absolute top-45 end-0 translate-middle-y" href="/project-add">Add Project</a>
-      {{/if }}
+    <section class="blog-container my-0">
+     
       <div class=" project-title text-center">
               <p class="">MY PROJECT </p>    
-                      
-              </div>
+      </div>
+       {{#if user}}
+       <div><a class="btn translate-middle-y btn-nav btn-add my-0" href="/project-add">Add Project</a></div>
+      {{/if }}
 
 
-      <div id="blogList" class="blog-list">     
+      <div id="blogList" class="blog-list ">     
 
           {{#each blogs }}
 
-         <div id="${i}" class="blog-list-item">
-          <div class="blog-image-title">
-            <div class="blog-image">
+         <div id="${i}" class="blog-list-item shadow">
+          <div class="blog-image-title gap-2">
+            <div class="blog-image ">
               <a href="/project-detail/{{this.id}}" >
               <img src={{this.image}} alt="blog-image" />
               </a>
             </div>
-           
-
             <div>
               <p>
                 <a href="/project-detail/{{this.id}}" class="blog-item-title">
@@ -39,14 +37,13 @@
               </p>
               <div>
                 <p class="detail-blog-content"> Duration : {{getDuring this.sdate this.edate}}</p>
-                <p class="detail-blog-content">{{this.user.username}}</p>
+                <p class="detail-blog-content"> Author   : {{this.user.username}}</p>
                 <p class="detail-blog-content">{{formatDataToWIB this.createdAt}}</p>   
-                
-                {{!-- <p>{{this.technologies}} </p> --}}
+                          
               </div>
             </div>
           </div>
-          <div>
+          <div class="gap-1">
             <p class="blog-text">
             {{truncateText this.message}}
             </p>
@@ -65,10 +62,12 @@
             <div class="btn-group">  
               {{#if (equal ../user.id this.user_id)}}            
              <a href="/project-edit/{{this.id}} " class="col"><button class="btn-edit">Edit</button></a>                             
-              <form  action="/delete-project{{this.id}}?_method=delete" method="post">
-              <button id="my-button-{{this.id}}"   onclick="return confirm('Are yout you sure delete this project?')"  class="btn-delete">Delete</button>                            
+              <form action="/delete-project{{this.id}}?_method=delete" method="post" >
+              <button id="mybutton-{{this.id}}"   class="btn-delete" hidden>Delete</button>                            
+            
              </form>
-              {{/if}}
+             <button  onclick="return confirmDel({{this.id}})"  class="btn-delete">Delete</button>
+              {{/if}}              
             </div>
               
             

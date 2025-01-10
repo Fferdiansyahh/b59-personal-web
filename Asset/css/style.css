@@ -4,7 +4,7 @@
 
   flex-direction: column;
   justify-content: center;
-  background-color: #BDC0C4;
+  /* background-color: #caddf5; */
   align-items: center;
   font-family: "Poppins", sans-serif;
   padding: 40px;
@@ -14,11 +14,40 @@
   width: 500px;
   border: 1px solid none;
   border-radius: 10px;
-  padding-bottom: 50px;
-
+  background-color: white;
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  padding: 50px;
+}
+
+.contact-form-email {
+  width: 500px;
+  border: 1px solid none;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 50px;
+}
+
+.contact-form-edit {
+  width: 580px;
+  border: 1px solid none;
+  background-color: none;
+  border-radius: 10px;
   gap: 20px;
+  padding: 50px 50px 10px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-edit {
+  border: 1px solid none;
+  background-color: white;
+  padding: 0px 0px 40px 0px;
+  border-radius: 10px;
 }
 
 .contact-form label {
@@ -81,9 +110,14 @@
 
 .form-input {
   border-radius: 5px;
-  border: 1px solid #cacaca;
+  border: 1px solid #e2e2e2;
   padding: 7px;
-  box-shadow: 0 0 20px #a8a8a8;
+
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px #dddddd;
+}
+.form-input:focus {
+  border: 1px solid hwb(219.5 0% 0%);
 }
 
 .form-date {
@@ -106,32 +140,50 @@
 .form-input-date {
   flex: 1;
   border-radius: 5px;
-  border: 1px solid #cacaca;
+  border: 1px solid #e2e2e2;
   padding: 7px;
-  box-shadow: 0 0 20px #a8a8a8;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px #dddddd;
+}
+input:focus {
+  border: 1px solid hwb(219.5 0% 0%);
 }
 
 .form-input-area {
   border-radius: 5px;
-  border: 1px solid #cacaca;
+  border: 1px solid #e2e2e2;
   padding: 7px;
-  box-shadow: 0 0 20px #a8a8a8;
-
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px #dddddd;
   resize: none;
 }
 
 .form-button {
-  margin-top: 20px;
+  width: 100%;
+  text-align: right;
+}
+
+.form-button-edit {
   width: 100%;
   text-align: right;
 }
 
 .form-submit-button {
   color: white;
-  background-color: black;
-  border: 1px solid black;
+  background-color: hwb(219.5 0% 0%);
+  border: 1px solid white;
   border-radius: 25px;
   padding: 5px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.form-submit-button-edit {
+  color: white;
+  background-color: hwb(219.5 0% 0%);
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 5px 20px;
+  margin-right: 50px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -154,13 +206,14 @@
 }
 
 .project-title p {
-  font-size: 33px;
+  font-size: 38px;
+  margin-bottom: 25px;
   align-content: center;
   font-weight: bold;
 }
 
 .blog-list {
-  width: 150;
+  width: 100%;
   display: grid;
   /* columns: 4; */
   grid-template-columns: auto auto auto;
@@ -225,7 +278,7 @@
   width: 100px;
   padding: 8px 20px;
   color: white;
-  background-color: black;
+  background-color: hwb(219.5 0% 0%);
   border: none;
   border-radius: 5px;
 }
@@ -305,33 +358,71 @@
 }
 
 .blog-detail-image {
-  width: 60%;
+  width: 50%;
 }
 
 .blog-detail-content {
   display: flex;
   flex-direction: row;
-  gap: 25px;
+  gap: 35px !important;
   text-align: justify;
 }
 
 .detail-content {
-  width: 100%;
+  width: 50%;
+  gap: 50px !important;
+}
+
+.textPasVal p {
+  font-size: 13px;
 }
 
 /* Responsive layar */
 
 @media (max-width: 800px) {
   .blog-list {
+    width: 120%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  /* .blog-list-item {
-        margin: 15px 15px;
-    }  */
+  .blog-list-item {
+    width: 100%;
+  }
   .contact-form {
+    width: 100%;
+  }
+
+  .contact-form-edit {
+    width: 100%;
+    /* margin: 0px 10px 0px 10px; */
+    padding: 25px 25px 5px 25px;
+  }
+
+  .contact-form-email {
+    width: 100%;
+
+    padding: 25px;
+  }
+
+  .form-submit-button-edit {
+    margin-right: 30px;
+  }
+
+  .form-edit {
+    width: 110%;
+  }
+
+  .blog-detail-content {
+    flex-direction: column;
+    padding: 0px 20px;
+  }
+
+  .blog-detail-image {
+    width: 100%;
+  }
+  .detail-content {
     width: 100%;
   }
 }

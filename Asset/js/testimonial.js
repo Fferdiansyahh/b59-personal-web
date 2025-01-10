@@ -1,35 +1,38 @@
 let testimonials = [
   {
-    author: "Leo G",
+    author: "Ferdian",
     rating: 5,
-    content: "Keren banget websitenya!",
-    image: "blog-img.png",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in gravida sem, condimentum sagittis justo. Vestibulum nulla felis, fringilla at molestie in, laoreet ac libero. ",
+    image: "/project/project_4.png",
   },
   {
-    author: "Nur M Arofiq",
+    author: "User",
     rating: 4,
-    content: "Mantaapp! Terima kasih.",
-    image: "blog-img.png",
+    content:
+      "Mauris rhoncus tempor lorem in convallis. Integer ornare massa vitae arcu tristique tristique. Nullam non diam at velit egestas auctor faucibus ut ex. Curabitur bibendum tincidunt arcu et rutrum. ",
+    image: "/project/project_4.png",
   },
   {
-    author: "Rendy Zulfan",
+    author: "Joko",
     rating: 3,
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea reiciendis qui molestias blanditiis inventore reprehenderit nesciunt sequi pariatur quaerat? Error?",
-    image: "blog-img.png",
+    image: "/project/project_4.png",
   },
   {
-    author: "Syifa Maulaya",
+    author: "Iqbal",
     rating: 4,
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, commodi obcaecati necessitatibus totam reprehenderit fuga.",
-    image: "blog-img.png",
+      "Vestibulum pulvinar pretium fermentum. Nullam at felis maximus, iaculis nunc in, rutrum nunc. Fusce a velit eget magna rutrum dignissim. Cras venenatis augue tellus, id volutpat ante blandit hendrerit. ",
+    image: "/project/project_4.png",
   },
   {
-    author: "Pandu Rizky",
+    author: "Tsabit",
     rating: 5,
-    content: "Keren bener gannn",
-    image: "blog-img.png",
+    content:
+      "Vestibulum pulvinar pretium fermentum. Nullam at felis maximus, iaculis nunc in, rutrum nunc. Fusce a velit eget magna rutrum dignissim. Cras venenatis augue tellus, id volutpat ante blandit hendrerit. ",
+    image: "/project/project_4.png",
   },
 ];
 
@@ -40,10 +43,10 @@ const testimonialsHTML = (daftarTestimoni) => {
     .map(
       (testimonial) => `
       <div class="d-flex justify-content-center my-3">
-          <div class="card p-3 col mx-0">
+          <div class="card p-5 col mx-0">
               <img src="asset/image/${testimonial.image}" class="card-img-top" alt="..." />
               <div class="card-body px-0">
-                <div class="overflow-scroll" style="height: 70px">
+                <div class="overflow-scroll" style="height: 120px">
                   <p class="card-text">${testimonial.content}</p>
                 </div>
                 <div class="text-end fw-bold mt-3">

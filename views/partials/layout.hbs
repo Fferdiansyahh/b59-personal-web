@@ -8,26 +8,41 @@
     <link rel="icon" href="/Asset/image/icon.png" />
     <link href="/asset/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/asset/css/sweetalert2.min.css" /> 
     <link rel="stylesheet" href="/asset/css/style.css" />
     <link rel="stylesheet" href="/Asset/css/style-index.css" />
     <link rel="stylesheet" href="/Asset/css/global-font.css" />
+     <link rel="stylesheet" href="/Asset/css/style-register.css" />
+    <script src="/Asset/js/sweetalert.min.js"></script> 
 </head>
 
-<body>
+<body style="background-color: #caddf5 !important;">
     {{> navbar currentPage=title user=user }}
 
     {{> @partial-block }}
 
     {{!-- {{> footer }} --}}
 
-    <script src="asset/js/bootstrap.bundle.min.js"
+    <script src="/Asset/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
     <script src="/utils/check.js"></script>
-    <script src="/Asset/js/sweetalert2@11.js"></script>
-    <script src="/Asset/js/test.js"></script>
+    <script src="/Asset/js/sweetalert2@11.js"></script> 
+    <script src="/Asset/js/jquery-3.7.1.min.js"></script>
+    <script src="/controllers/controller-v2.js"></script>
+     {{!-- <script src="/utils/alerts.js"></script> --}}
+    <script src="/Asset/js/alerts.js"></script>
     <script src="asset/js/testimonial.js"></script>
+    <script src="/utils/alert.js"></script>
+    <script src="/utils/alertSuccess.js"></script>
+    <script src="/Asset/js/validate-register.js"></script>
+
+<script src="/url-to-load/jquery.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+
+
   
 </body>
 

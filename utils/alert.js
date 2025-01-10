@@ -1,5 +1,3 @@
-const Swal = require("sweetalert2");
-
 function sendAlert(title, message) {
   Swal.fire({
     title: title,
@@ -7,10 +5,12 @@ function sendAlert(title, message) {
     icon: "error",
   });
 }
+// var button = document.getElementById("submit-login");
+// button.addEventListener("click", confirmDelProj);
 
-function confirmDelProject() {
+function confirmDelProj(req, res) {
   return Swal.fire({
-    title: "The Internet?",
+    title: "The Internet?Hi Ferdian",
     text: "That thing is still around?",
     icon: "question",
   });
@@ -20,6 +20,6 @@ function alertLogin() {}
 
 module.exports = {
   sendAlert,
-  confirmDelProject,
+  confirmDelProj,
   alertLogin,
 };

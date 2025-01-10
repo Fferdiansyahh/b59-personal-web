@@ -1,48 +1,157 @@
-<nav class="navbar navbar-expand-lg bg-secondary-subtle">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="/Asset/image/icon.png" alt="Bootstrap" width="30" />
+<div >
+  <nav class="navbar navbar-expand-lg  navbar-main">    
+    <div class="container-fluid px-0">
+
+     <div class="dropdown-center dropdown-d">
+  <button class="navbar-toggler rounded nav-right-res" type="button"   data-bs-toggle="dropdown"  aria-expanded="false">
+   <a class="navbar-brand "  >
+      <img src="/Asset/image/DU-Black.png" style="margin-left: 2px;" alt="Bootstrap" />
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
+   </button>
+  <ul class="dropdown-menu dropdown-menu-lg-start px-4 " style="width: 30%">
+    <a class="nav-link text-primary " style="justify-items: center;" href="/" >Home</a>
+    <li><hr class="dropdown-divider"></li>
+    <a class="nav-link text-primary " style="justify-items: center;"  href="/myproject">My Project</a>
+    <li><hr class="dropdown-divider"></li>
+    <a class="nav-link text-primary " href="/testimonial">Testimonial</a>
+  </ul>
+</div>
+
+<button class="navbar-toggler rounded-circle nav-right-res" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+     <img src="/Asset/image/profil.png" alt="profil"  />
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+      {{#if user}}
+      <div class="offcanvas offcanvas-end nav-right-res-items" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Hello, {{user.username}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body py-0">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">       
+    <li><hr class="dropdown-divider text-primary"></li>
+    <a class="nav-link text-primary " style="justify-items: center;"   href="/logout">Logout</a>
+    <li><hr class="dropdown-divider text-primary"></li>
+    <a class="nav-link text-primary " href="/contact">Contact Me</a></li></ul>
+        <ul class="dropdown-menu dropdown-menu-lg-end px-4 " style="width: 30%"></ul>       
+      </div>
+    </div>
+    
+{{else}}
+<div class="offcanvas offcanvas-end nav-right-res-items" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Login Your Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body py-0">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">  
+      <a class="nav-link text-primary " style="justify-items: center;" href="/register"> Register</a>
+    <li><hr class="dropdown-divider text-primary"></li>
+    <a class="nav-link text-primary " style="justify-items: center;"   href="/login">Login</a>
+    <li><hr class="dropdown-divider text-primary"></li>
+    <a class="nav-link text-primary " href="/contact">Contact Me</a></li></ul>
+        <ul class="dropdown-menu dropdown-menu-lg-end px-4 " style="width: 30%"></ul>       
+      </div>
+    </div>
+{{/if}}
+
+
+
+
+  {{!-- <a class="navbar-brand mx-0 position-relative py-2 px-4" href="/">
+        <img src="/Asset/image/vector/home.svg" alt="Bootstrap" width="30" />
+      </a> --}}
+
+
+ {{#if user}}
+    <div class="dropdown-center dropdown-d d-none" >
+  <button type="button" class="btn btn-primary " data-bs-toggle="dropdown" data-bs-display="static"  aria-expanded="false">
+    Hi, {{user.username}}</button>
+  <ul class="dropdown-menu dropdown-menu-lg-end px-4 " style="width: 30%">
+    <a class="nav-link text-primary " style="justify-items: center;" > Hi, {{user.username}}</a>
+    <li><hr class="dropdown-divider"></li>
+    <a class="nav-link text-primary " style="justify-items: center;"   href="/logout">Logout</a>
+    <li><hr class="dropdown-divider"></li>
+    <a class="nav-link text-primary " href="/contact">Contact Me</a>
+  </ul></div>           
+{{else}}
+<div class="dropdown-center dropdown-d d-none" >
+  <button type="button" class="btn btn-primary " data-bs-toggle="dropdown" data-bs-display="static"  aria-expanded="false">
+    </button>
+  <ul class="dropdown-menu dropdown-menu-lg-end px-4 " style="width: 30%">
+    <a class="nav-link text-primary " style="justify-items: center;" href="/register"> Register</a>
+    <li><hr class="dropdown-divider"></li>
+    <a class="nav-link text-primary " style="justify-items: center;"   href="/login">Login</a>
+    <li><hr class="dropdown-divider"></li>
+    <a class="nav-link text-primary " href="/contact">Contact Me</a>
+  </ul>
+</div>
+
+<div class="offcanvas offcanvas-end nav-right-res-items" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Hello, {{user.username}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="dropdown-menu dropdown-menu-lg-end px-4 " style="width: 30%">
+    <a class="nav-link text-primary " style="justify-items: center;" href="/register"> Register</a>
+    <li><hr class="dropdown-divider"></li>
+    <a class="nav-link text-primary " style="justify-items: center;"   href="/login">Login</a>
+    <li><hr class="dropdown-divider"></li>
+    <a class="nav-link text-primary " href="/contact">Contact Me</a>
+  </ul>       
+      </div>
+    </div>
+    {{/if}}
+
+
+    
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1" >
         <li class="nav-item">
-          <a class="nav-link {{#if (equal currentPage 'Home')}}active text-orange fw-bold{{/if}}" aria-current="page" href="/">
-            Home
-          </a>
-        </li>
+          <a class="nav-link home-nav {{#if (equal currentPage 'Home')}} navbar-active{{/if}}" aria-current="page" href="/">
+            Home</a>
+        </li>        
         <li class="nav-item">
-          <a class="nav-link {{#if (equal currentPage 'My Project')}}active text-orange fw-bold{{/if}}" href="/myproject">My
+          <a class="nav-link home-nav{{#if (equal currentPage 'My Project')}} navbar-active{{/if}}" href="/myproject">My
             Project</a>
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {{#if (equal currentPage 'Testimonials')}}active text-orange fw-bold{{/if}}"
+            class="nav-link home-nav{{#if (equal currentPage 'Testimonials')}} navbar-active{{/if}}"
             href="/testimonial"
           >Testimonial
           </a>
         </li>
       </ul> 
-      <div style="display: flex; align-items:center; width:50%; justify-content:end; gap: 20px; ">
-        {{#if user}}
-        Hello, {{user.username}}
-        <a class="nav-link " href="/logout">Logout</a>
-        {{else}}
-        <a class="nav-link " href="/register">Register</a>
-        <a class="nav-link " href="/login">Login</a>
-         {{/if}}
-        <a class="btn btn-orange " href="/contact">Contact Me</a>
-      </div>
+
+   
     </div>
-  </div>
-</nav>
+
+
+    </div>
+    <div class="navbar-end nav-login">
+      <div class="navbar-right" style="display: flex; align-items:center; justify-content:end; gap: 20px; ">
+        
+        {{#if user}}
+        <a class="nav-link text-white" > Hello, {{user.username}}</a>
+        <a class="nav-link navbar-login"   href="/logout">Logout</a>
+        
+        {{else}}
+
+        <a class="nav-link navbar-login {{#if (equal currentPage 'Register')}} active-login{{/if}} " href="/register">Register</a>
+        <a class="nav-link navbar-login {{#if (equal currentPage 'Login')}} active-login{{/if}}  " href="/login">Login</a>
+         {{/if}}
+        <a class="btn rounded-pill btn-nav " href="/contact">Contact Me</a>
+
+
+        
+      </div>
+
+      
+
+    </div>
+
+  </nav>
+</div>

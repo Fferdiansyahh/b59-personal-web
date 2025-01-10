@@ -1,7 +1,8 @@
 {{#> layout title='Create Project' user=user}}
 
   <main class="contact-section">
-    <form action="/project-add" method="post" class="contact-form" enctype="multipart/form-data">
+    <div class="form-edit">
+    <form action="/project-add" method="post" class="contact-form-edit" enctype="multipart/form-data">
       <div class="form-title">
         <h2>ADD MY PROJECT</h2>
       </div>
@@ -11,12 +12,12 @@
       </div>
 
       <div class="form-date">
-        <div class="form-field-date">
+        <div class="form-field-date mt-4">
           <label for="sdate">Start Date</label>
           <input id="sdate" name="sdate" class="form-input-date" type="date" min="2023-01-01" max="2030-12-31"
           value="{{formatNow}}"    required />
         </div>
-        <div class="form-field-date">
+        <div class="form-field-date mt-4">
           <label for="edate">End Date</label>
           <input id="edate" name="edate" class="form-input-date" type="date" min="2023-01-01" max="2030-12-31"
           Value="{{formatNow}}"    required />
@@ -48,17 +49,17 @@
           <label for="TypeScript">TypeScript</label>
         </div>
       </div>
-
       <div class="form-field-image">       
         <label for="image" class="form-label">Upload Image</label>
-          <input id="image" name="image" class="form-control" type="file" accept=".png, .jpg, .jpeg">
+          <input id="image" name="image" class="form-control form-input " type="file" accept=".png, .jpg, .jpeg">
       </div>
-<div>
-<img id="preview" src="#" alt="image preview" class="img-thumbnail d-none" style="max-height: 300px;"></img>
+<div class="w-100 text-center">
+<img id="preview" src="#" alt="image preview" class="img-thumbnail d-none" style="max-width: 100%"></img>
 </div>
-      <div class="form-button"><button type="submit" class="form-submit-button">Post Project</button></div>
+      <div  class="form-button"><button id="button-add"  type="submit" class="form-submit-button d-none">Post Project</button></div>
     </form>
-
+    <div class="form-button-edit"><button onclick="return confirmAdd()"  ontype="submit" class="form-submit-button-edit">Post Project</button></div>
+</div>
 
   <script src="/asset/js/image-preview.js"></script>
 
