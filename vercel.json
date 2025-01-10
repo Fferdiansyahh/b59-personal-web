@@ -9,9 +9,6 @@
     {
       "src": "Asset/**",
       "use": "@vercel/static"
-    },
-    {
-      "rewrites": [{ "source": "/(.*)", "destination": "/" }]
     }
   ],
 
@@ -19,6 +16,9 @@
     {
       "src": "/(.*)",
       "dest": "index.js"
+    },
+    {
+      "rewrites": [{ "source": "/(.*)", "destination": "/" }]
     }
   ]
 }
