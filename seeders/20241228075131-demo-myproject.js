@@ -20,7 +20,7 @@ module.exports = {
         message:
           "Can you help translate this site into a foreign language ? Please email us with details if you can help",
         technologies: "node.js",
-        image: "http://localhost:3030/asset/image/mobil.jpg",
+        image: "http://localhost:3030/Asset/image/mobil.jpg",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -31,7 +31,7 @@ module.exports = {
         message:
           "The first line of Lorem Ipsum, 'Lorem ipsum dolor sit amet..', comes from a line in section 1.10.32.",
         technologies: "node.js",
-        image: "http://localhost:3030/asset/image/motor.jpeg",
+        image: "http://localhost:3030/Asset/image/motor.jpeg",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
