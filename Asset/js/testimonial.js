@@ -44,7 +44,7 @@ const testimonialsHTML = (daftarTestimoni) => {
       (testimonial) => `
       <div class="d-flex justify-content-center my-3">
           <div class="card p-5 col mx-0">
-              <img src="asset/image/${testimonial.image}" class="card-img-top" alt="..." />
+              <img src="/Asset/image/${testimonial.image}" class="card-img-top" alt="..." />
               <div class="card-body px-0">
                 <div class="overflow-scroll" style="height: 120px">
                   <p class="card-text">${testimonial.content}</p>
