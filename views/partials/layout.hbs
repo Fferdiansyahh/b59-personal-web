@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Personal Web | {{title}}</title>
-    <link rel="icon" href="/Asset/image/icon.png" />
+    <link rel="icon" href="/Asset/image/icon.png"/>
     <link href="/Asset/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="/Asset/css/sweetalert2.min.css" /> 
@@ -13,6 +13,17 @@
     <link rel="stylesheet" href="/Asset/css/style-index.css" />
     <link rel="stylesheet" href="/Asset/css/global-font.css" />
      <link rel="stylesheet" href="/Asset/css/style-register.css" />
+
+</head>
+
+<body style="background-color: #caddf5 !important;">
+    {{> navbar currentPage=title user=user }}
+
+    {{> @partial-block }}
+
+    {{!-- {{> footer }} --}}
+
+
     <script src="/Asset/js/sweetalert.min.js"></script> 
 
     
@@ -34,15 +45,6 @@
 <script src="/url-to-load/jquery.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
-</head>
-
-<body style="background-color: #caddf5 !important;">
-    {{> navbar currentPage=title user=user }}
-
-    {{> @partial-block }}
-
-    {{!-- {{> footer }} --}}
-
 
 
   
