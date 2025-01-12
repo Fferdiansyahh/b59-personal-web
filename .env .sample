@@ -9,3 +9,8 @@ POSTGRES_DATABASE=b59_personalweb
 POSTGRES_HOST=localhost
 
  // "postinstall": "sequelize db:migrate",
+
+POSTGRES_USER=b59_personalweb_owner
+POSTGRES_PASSWORD=0UXug3BWbwhs
+POSTGRES_DATABASE=b59_personalweb
+POSTGRES_HOST=ep-blue-bush-a1oo0tb7.ap-southeast-1.aws.neon.tech
