@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const { types } = require("pg");
 const { Myproject, User } = require("../models");
 const session = require("express-session");
+require("dotenv").config();
 const fs = require("fs");
 // const $ = require("jquery");
 const path = require("path");
@@ -131,7 +132,7 @@ async function updateProject(req, res) {
   let user = req.session.user;
   const { id } = req.params;
   const projectEdit = await Myproject.findOne({ where: { id } });
-  const image = "http://localhost:3030/" + req.file.path;
+  const image = POSTGRES_HOST + req.file.path;
 
   let imagepPath =
     "./uploads/" + projectEdit.image.split("\\").pop().split("/").pop();
@@ -250,7 +251,7 @@ async function addProject(req, res) {
 
   const { name, message, technologies = technologies, sdate, edate } = req.body;
   // const image = "http://localhost:3030/Asset/image/mobil.jpg";
-  const image = "http://localhost:3030/" + req.file.path;
+  const image = process.env.POSTGRES_USER + req.file.path;
   // console.log("Hasil Gambar".req.file.path);
   console.log("Gambar upload", req.file);
   const result = await Myproject.create({
