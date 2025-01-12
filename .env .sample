@@ -7,3 +7,5 @@ POSTGRES_USER=postgres
 POSTGRES_PASSWORD=admin
 POSTGRES_DATABASE=b59_personalweb
 POSTGRES_HOST=localhost
+
+ // "postinstall": "sequelize db:migrate",
